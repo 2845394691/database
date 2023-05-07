@@ -137,5 +137,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # added by xky
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR,'myapp/static'),
 ]
+STATIC_ROOT = ''

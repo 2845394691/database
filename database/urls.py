@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from myapp import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
+    # bootstrap引入示例
+    path('bootstrap/test/',views.bootstrap_test)
 ]
