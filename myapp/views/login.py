@@ -29,5 +29,5 @@ def login(request):
 
         # 用户密码正确时
         request.session["info"] = {'id':staff.staffno}
-        return redirect("/bootstrap/test/")
+        return redirect("/staff/index/")
     return render(request, 'login.html', {'form': form})

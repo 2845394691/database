@@ -19,7 +19,6 @@ from myapp.views import test
 from myapp.views import login
 from myapp.views import staff_index
 
-
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # bootstrap引入示例
@@ -29,5 +28,5 @@ urlpatterns = [
     path('login/', login.login),
 
     # 用户首页
-    path('staff/index',staff_index.index),
+    path('staff/index/', staff_index.index),
 ]
