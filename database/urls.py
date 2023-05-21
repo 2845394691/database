@@ -20,5 +20,6 @@ from myapp import views
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # bootstrap引入示例
-    path('bootstrap/test/',views.bootstrap_test)
+    path('bootstrap/test/', views.bootstrap_test),
+    path('login/', views.login),
 ]

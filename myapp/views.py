@@ -5,3 +5,6 @@ from django.shortcuts import render
 def bootstrap_test(request):
     return render(request,'test.html')
 
+def login(request):
+    return render(request,'login.html')
+
