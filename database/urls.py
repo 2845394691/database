@@ -15,12 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp.views import login
 from myapp.views import test
+from myapp.views import login
+from myapp.views import staff_index
+
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # bootstrap引入示例
     path('bootstrap/test/', test.bootstrap_test),
+
+    # 登录界面
     path('login/', login.login),
+
+    # 用户首页
+    path('staff/index',staff_index.index),
 ]
