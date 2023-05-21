@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp import views
+from myapp.views import login
+from myapp.views import test
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # bootstrap引入示例
-    path('bootstrap/test/', views.bootstrap_test),
-    path('login/', views.login),
+    path('bootstrap/test/', test.bootstrap_test),
+    path('login/', login.login),
 ]
