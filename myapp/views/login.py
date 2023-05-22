@@ -28,6 +28,6 @@ def login(request):
             return render(request, 'login.html', {'form': form})
 
         # 用户密码正确时
-        request.session["info"] = {'id':staff.staffno}
+        request.session["info"] = {'id': staff.staffno}
         return redirect("/staff/index/")
     return render(request, 'login.html', {'form': form})

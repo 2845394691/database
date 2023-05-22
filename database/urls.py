@@ -26,7 +26,7 @@ urlpatterns = [
 
     # 登录界面
     path('login/', login.login),
-
+    path('', login.login),
     # 用户首页
     path('staff/index/', staff_index.index),
 ]
