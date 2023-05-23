@@ -14,7 +14,7 @@ class LoginForm(forms.Form):
 
 
 def login(request):
-    """登录"""
+    """用户登录"""
     if request.method == "GET":
         form = LoginForm()
         return render(request, 'login.html', {'form': form})

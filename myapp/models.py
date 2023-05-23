@@ -194,6 +194,14 @@ class Staff(models.Model):
         db_table = 'Staff'
 
 
+class Admin(models.Model):
+    adminNo = models.CharField(db_column='adminNo', primary_key=True, max_length=20)
+    password = models.CharField(max_length=20, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'Admin'
+
 class Participate(models.Model):
     staffno = models.ForeignKey(Staff, models.DO_NOTHING, db_column='staffNo', primary_key=True)  # Field name made lowercase.
     meetingno = models.ForeignKey(Meeting, models.DO_NOTHING, db_column='meetingNo')  # Field name made lowercase.
