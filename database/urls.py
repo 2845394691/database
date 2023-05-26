@@ -13,12 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+# from django.contrib import admin
 from django.urls import path
 from myapp.views import test
 from myapp.views import login
 from myapp.views import staff_index
 from myapp.views import admin
+from myapp.views import admin_index
+from myapp.views import manager_index
+
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # bootstrap引入示例
@@ -27,9 +30,16 @@ urlpatterns = [
     # 用户登录界面
     path('login/', login.login),
     path('', login.login),
+
     # 用户首页
     path('staff/index/', staff_index.index),
 
+    # 部门负责人首页
+    path('manager/index/',manager_index.index),
+
     # 管理员登录
-    path('admin/login', admin.login)
+    path('admin/login/', admin.login),
+
+    # 管理员首页
+    path('admin/index/',admin_index.index),
 ]
