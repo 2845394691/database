@@ -135,3 +135,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'myapp/static'),
 ]
 STATIC_ROOT = ''
+X_FRAME_OPTIONS = 'SAMEORIGIN'

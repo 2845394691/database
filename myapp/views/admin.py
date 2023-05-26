@@ -40,7 +40,7 @@ def login(request):
         return render(request, 'admin_login.html',{'label':label})
     else:
         request.session["admin"] = {'id': form["adminNo"]}
-        return render(request, 'admin_index.html')
+        return render(request, 'manager_index.html')
     # return render(request, 'admin_login.html')
 
 
