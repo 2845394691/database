@@ -40,5 +40,7 @@ def login(request):
         return render(request, 'admin_login.html',{'label':label})
     else:
         request.session["admin"] = {'id': form["adminNo"]}
-        return redirect("/staff/index/")
-    return render(request, 'admin_login.html')
+        return render(request, 'admin_index.html')
+    # return render(request, 'admin_login.html')
+
+
