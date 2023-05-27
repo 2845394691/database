@@ -54,4 +54,7 @@ urlpatterns = [
     # 部门
     path('manager/staff/list/', manager_staff_manage.staff_list),
 
+    # 用户报销申请
+    path('staff/apply/baoxiao/',staff_apply.baoxiao),
+
 ]
