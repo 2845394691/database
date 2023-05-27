@@ -22,6 +22,7 @@ from myapp.views import admin
 from myapp.views import admin_index
 from myapp.views import manager_index
 from myapp.views import staff_apply
+from myapp.views import manager_staff_manage
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -50,5 +51,7 @@ urlpatterns = [
     # 管理员首页
     path('admin/index/',admin_index.index),
 
+    # 部门
+    path('manager/staff/list/', manager_staff_manage.staff_list),
 
 ]
