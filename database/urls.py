@@ -38,6 +38,9 @@ urlpatterns = [
     # 用户请假申请
     path('staff/apply/qingjia/',staff_apply.qingjia),
 
+    # 用户加班申请
+    path('staff/apply/jiaban/',staff_apply.jiaban),
+
     # 部门负责人首页
     path('manager/index/',manager_index.index),
 
@@ -46,4 +49,6 @@ urlpatterns = [
 
     # 管理员首页
     path('admin/index/',admin_index.index),
+
+
 ]
