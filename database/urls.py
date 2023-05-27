@@ -21,6 +21,7 @@ from myapp.views import staff_index
 from myapp.views import admin
 from myapp.views import admin_index
 from myapp.views import manager_index
+from myapp.views import staff_apply
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -33,6 +34,9 @@ urlpatterns = [
 
     # 用户首页
     path('staff/index/', staff_index.index),
+
+    # 用户请假申请
+    path('staff/apply/qingjia/',staff_apply.qingjia),
 
     # 部门负责人首页
     path('manager/index/',manager_index.index),
