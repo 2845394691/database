@@ -33,8 +33,8 @@
                 <td>{{ staff.entrydate|date:"Y-m-d" }}</td>
                 <td>{{ staff.departmentno.departmentname }}</td>
                 <td>
-                    <a href="/user/{{ obj.id }}/edit/" class="btn btn-primary btn-xs">编辑</a>
-                    <a href="/user/delete/?nid={{ obj.id }}" class="btn btn-danger btn-xs">删除</a>
+                    <a href="/user/{{ staff.staffno }}/edit/" class="btn btn-primary btn-xs">编辑</a>
+                    <a href="/manager/staff/delete/?nid={{ staff.staffno }}" class="btn btn-danger btn-xs">删除</a>
                 </td>
             </tr>
         {% endfor %}

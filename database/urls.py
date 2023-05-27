@@ -37,32 +37,35 @@ urlpatterns = [
     path('staff/index/', staff_index.index),
 
     # 用户请假申请
-    path('staff/apply/qingjia/',staff_apply.qingjia),
+    path('staff/apply/qingjia/', staff_apply.qingjia),
 
     # 用户加班申请
-    path('staff/apply/jiaban/',staff_apply.jiaban),
+    path('staff/apply/jiaban/', staff_apply.jiaban),
 
     # 部门负责人首页
-    path('manager/index/',manager_index.index),
+    path('manager/index/', manager_index.index),
 
     # 管理员登录
     path('admin/login/', admin.login),
 
     # 管理员首页
-    path('admin/index/',admin_index.index),
+    path('admin/index/', admin_index.index),
 
     # 部门
     path('manager/staff/list/', manager_staff_manage.staff_list),
 
     # 用户报销申请
-    path('staff/apply/baoxiao/',staff_apply.baoxiao),
+    path('staff/apply/baoxiao/', staff_apply.baoxiao),
 
     # 用户出差申请
-    path('staff/apply/chuchai/',staff_apply.chuchai),
+    path('staff/apply/chuchai/', staff_apply.chuchai),
 
     # 用户辞职申请
     path('staff/apply/cizhi/', staff_apply.cizhi),
 
-    # 添加员工
-    path('manager/staff/add/', manager_staff_manage.staff_add)
+    # 负责人添加员工
+    path('manager/staff/add/', manager_staff_manage.staff_add),
+
+    # 负责人删除员工
+    path('manager/staff/delete/', manager_staff_manage.staff_delete)
 ]

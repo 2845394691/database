@@ -52,3 +52,9 @@ def staff_add(request):
                                 email=email,
                                 sex=gender)
     return redirect("/manager/staff/list/")
+
+def staff_delete(request):
+    staffno = request.GET.get('nid')
+    models.Staff.objects.filter(staffno=staffno).delete()
+    return redirect("/manager/staff/list/")
+
