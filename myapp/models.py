@@ -182,12 +182,17 @@ class Staff(models.Model):
     man_staffno = models.ForeignKey(Manager, models.DO_NOTHING, db_column='Man_staffNo', blank=True, null=True)  # Field name made lowercase.
     staffname = models.CharField(db_column='staffName', max_length=10, blank=True, null=True)  # Field name made lowercase.
     identitycard = models.CharField(db_column='identityCard', max_length=20, blank=True, null=True)  # Field name made lowercase.
-    sex = models.IntegerField(blank=True, null=True)
     phoneno = models.CharField(db_column='phoneNo', max_length=15, blank=True, null=True)  # Field name made lowercase.
     email = models.CharField(max_length=25, blank=True, null=True)
     entrydate = models.DateField(db_column='entryDate', blank=True, null=True)  # Field name made lowercase.
     avatar = models.TextField(blank=True, null=True)
     password = models.CharField(max_length=16, blank=True, null=True)
+
+    gender_choices = (
+        (0, "男"),
+        (1, "女"),
+    )
+    sex = models.IntegerField(blank=True, null=True,choices=gender_choices)
 
     class Meta:
         managed = True

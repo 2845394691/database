@@ -44,3 +44,7 @@ def login(request):
     # return render(request, 'admin_login.html')
 
 
+# def index(request):
+#     """管理员首页"""
+#     return render(request, 'staff_index.html')
+

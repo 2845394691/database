@@ -5,4 +5,6 @@ from django.shortcuts import render
 # 部门负责人首页
 
 def index(request):
-    return render(request, 'staff_index.html')
+    return render(request, 'manager_index.html')
+
+
