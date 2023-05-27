@@ -52,7 +52,7 @@ def qingjia(request):
     manager = Manager.objects.filter(staffno=managerno).first()
     # 获取表单值
     start_date = request.POST.get('start_data')
-    end_data = request.POST.get('end_data')
+    end_date = request.POST.get('end_data')
     reason = request.POST.get('reason')
     # 获取当前日期
     current_date = datetime.date.today()
@@ -66,7 +66,7 @@ def qingjia(request):
 
     # 插入数据库  staffno=staff_id,man_staffno=manager,
     absense = Absence(abno=result, staffno=staff, man_staffno=manager, abreason=reason, abapplydate=current_date,
-                      abstartdate=start_date, abenddate=end_data, abstatu="未审核")
+                      abstartdate=start_date, abenddate=end_date, abstatu="未审核")
     absense.save()
     return render(request, 'staff_qingjia.html', {"sname": staffset, "dname": departnameset})
     # redirect("staff/apply/qingjia/")

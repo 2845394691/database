@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
     <script src="{% static 'js/jquery-3.4.1/jquery-3.4.1.js' %}"></script>
     <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
-
+    <link href="{% static 'css/dtsel.css' %}" rel='stylesheet' type='text/css'/>
     <title>Title</title>
 </head>
 <body>
@@ -47,6 +47,17 @@
         </form>
     </div>
 
+<script src="{% static 'js/dtsel.js' %}"></script>
+    <script>
+        {#只有日期#}
+        instance = new dtsel.DTS('input[name="start_data"]', {
+            direction: 'BOTTOM'
+        });
+        instance = new dtsel.DTS('input[name="end_data"]', {
+            direction: 'BOTTOM'
+        });
+
+    </script>
 
 </body>
 </html>
