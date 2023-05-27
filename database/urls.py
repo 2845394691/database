@@ -57,4 +57,10 @@ urlpatterns = [
     # 用户报销申请
     path('staff/apply/baoxiao/',staff_apply.baoxiao),
 
+    # 用户出差申请
+    path('staff/apply/chuchai/',staff_apply.chuchai),
+
+    # 用户辞职申请
+    path('staff/apply/cizhi/', staff_apply.cizhi),
+
 ]
