@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.3.0/css/bootstrap.min.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">申请编号</th>
+            <th scope="col">申请类型</th>
+            <th scope="col">发起时间</th>
+            <th scope="col">发起事由</th>
+            <th scope="col">审批状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for absence in absences %}
+            <tr>
+                <th scope="row">{{ absence.abno }}</th>
+                <td>请假申请</td>
+                <td>{{ absence.abapplydate|date:"Y-m-d" }}</td>
+                <td>{{ absence.abreason }}</td>
+                <td style="font-weight: bold">{{ absence.abstatu }}</td>
+                </th>
+            </tr>
+        {% endfor %}
+        {% for reim in reims %}
+            <tr>
+                <th scope="row">{{ reim.reimno }}</th>
+                <td>报销申请</td>
+                <td>{{ reim.reimapplydate |date:"Y-m-d" }}</td>
+                <td>{{ reim.reimamount }}</td>
+                <td style="font-weight: bold">{{ reim.reimstatu }}</td>
+                </th>
+            </tr>
+        {% endfor %}
+        {% for leaf in leaves %}
+            <tr>
+                <th scope="row">{{ leaf.leaveno }}</th>
+                <td>辞职申请</td>
+                <td>{{ leaf.leaveapplydate |date:"Y-m-d" }}</td>
+                <td>{{ leaf.leavereason }}</td>
+                <td style="font-weight: bold">{{ leaf.leavestatu }}</td>
+                </th>
+            </tr>
+        {% endfor %}
+        {% for business_trip in business_trips %}
+            <tr>
+                <th scope="row">{{ business_trip.btno }}</th>
+                <td>出差申请</td>
+                <td>{{ business_trip.btapplydate |date:"Y-m-d" }}</td>
+                <td>{{ business_trip.btcontent }}</td>
+                <td style="font-weight: bold">{{ business_trip.btstatu }}</td>
+                </th>
+            </tr>
+        {% endfor %}
+        {% for overtime in overtimes %}
+            <tr>
+                <th scope="row">{{ overtime.overno }}</th>
+                <td>加班申请</td>
+                <td>{{ overtime.overapplydate |date:"Y-m-d" }}</td>
+                <td>{{ overtime.overreason }}</td>
+                <td style="font-weight: bold">{{ overtime.overstatu }}</td>
+                </th>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

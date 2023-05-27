@@ -67,5 +67,8 @@ urlpatterns = [
     path('manager/staff/add/', manager_staff_manage.staff_add),
 
     # 负责人删除员工
-    path('manager/staff/delete/', manager_staff_manage.staff_delete)
+    path('manager/staff/delete/', manager_staff_manage.staff_delete),
+
+    # 员工
+    path('staff/apply/list/', staff_apply.apply_list),
 ]
