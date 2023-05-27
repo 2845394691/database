@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jquery-3.4.1/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row glyphicon-adjust">
+                <div class="col-sm-1 form-group">
+
+                </div>
+                <div class="col-sm-4 form-group">
+                    姓名：<input type="text" class="form-control" placeholder="{{ sname.0 }}" readonly="readonly" >
+                </div>
+                <div class="col-sm-4 form-group">
+                    部门：<input type="text" class="form-control" placeholder="{{ dname.0 }}" readonly="readonly">
+                </div>
+            </div>
+            <div class="row glyphicon-adjust">
+                <div class="col-sm-1 form-group">
+
+                </div>
+                <div class="col-sm-4 form-group form-control-wrapper">
+                    开始日期：<input type="text" class="form-control" placeholder="格式：YYYY-MM-DD HH:MM:SS" name="start_data" id="date">
+                </div>
+                <div class="col-sm-4 form-group form-control-wrapper">
+                    结束日期：<input type="text" class="form-control" placeholder="格式：YYYY-MM-DD HH:MM:SS" name="end_data" id="date">
+                </div>
+            </div>
+            <div class="row glyphicon-adjust">
+                <div class="col-sm-1 form-group">
+
+                </div>
+                <div class="col-sm-8 form-group">
+                    加班理由：<input type="text" class="form-control" placeholder="" style="height: 400px" name="reason">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" style="margin-left: 780px">提交</button>
+        </form>
+    </div>
+
+
+</body>
+</html>
