@@ -63,4 +63,6 @@ urlpatterns = [
     # 用户辞职申请
     path('staff/apply/cizhi/', staff_apply.cizhi),
 
+    # 添加员工
+    path('manager/staff/add/', manager_staff_manage.staff_add)
 ]
