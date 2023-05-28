@@ -10,7 +10,19 @@
 <body>
 
 <div class="container">
-    <table class="table table-striped table-hover">
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="" class="form-label" style="padding-left: 600px; font-weight: bold;font-size: 1.5rem">添加部门</label>
+                <input type="text" class="form-control" name="name" placeholder="部门名字">
+            </div>
+            <div style="padding-left: 610px;">
+                <button  type="submit" class="btn btn-primary btn-lg">提交</button>
+            </div>
+        </form>
+    </div>
+    <table class="table table-striped table-hover" style='vertical-align: middle;text-align: center;'>
         <thead>
         <tr>
             <th scope="col">部门总数</th>
@@ -18,10 +30,10 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
-                <td style="font-weight: bold">{{ depart_count }}</td>
-                <td style="font-weight: bold">{{ staff_count }}</td>
-            </tr>
+        <tr>
+            <td style="font-weight: bold">{{ depart_count }}</td>
+            <td style="font-weight: bold">{{ staff_count }}</td>
+        </tr>
         </tbody>
     </table>
     <div id="main" style="width:100%; height: 600px"></div>
