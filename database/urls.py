@@ -27,6 +27,7 @@ from myapp.views import manager_apply
 from myapp.views import manager_notice
 from myapp.views import admin_notice
 from myapp.views import admin_info
+from myapp.views import admin_depart
 
 
 urlpatterns = [
@@ -125,6 +126,9 @@ urlpatterns = [
     path('admin/info/manager/delete/',admin_info.manager_del),
     path('admin/info/staff/',admin_info.staff),
     path('admin/info/staff/delete/',admin_info.staff_del),
+
+    # 管理员查看部门信息，新建部门
+    path('admin/depart/',admin_depart.detail)
 
 
 ]
