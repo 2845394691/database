@@ -26,9 +26,9 @@
             <tr>
                 <th scope="row">{{ obj.staffno.staffno }}</th>
                 <td>{{ obj.staffno.staffname }}</td>
-                <td>{{ obj.abapplydate }}</td>
-                <td>{{ obj.abstartdate }}</td>
-                <td>{{ obj.abenddate }}</td>
+                <td>{{ obj.abapplydate|date:"Y-m-d" }}</td>
+                <td>{{ obj.abstartdate|date:"Y-m-d" }}</td>
+                <td>{{ obj.abenddate|date:"Y-m-d" }}</td>
                 <td>{{ obj.abreason }}</td>
                 <td>
                     <a href="/manager/apply/qingjia/consent/?nid={{ obj.abno }}" class="btn btn-success btn-xs">同意</a>

@@ -18,7 +18,6 @@
             <th scope="col">开始时间</th>
             <th scope="col">结束时间</th>
             <th scope="col">会议内容</th>
-            <th scope="col">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -29,10 +28,7 @@
                 <td>{{ obj.meetingdate|date:"Y-m-d" }}</td>
                 <td>{{ obj.meetingstarttime }}</td>
                 <td>{{ obj.meetingendtime}}</td>
-                <td>{{ obj.meetingcontent }}</td>
-                <td>
-                    <a href="/manager/meeting/delete/?nid={{ obj.meetingno }}" class="btn btn-danger btn-xs">删除</a>
-                </td>
+                <td>{{ obj.meetingcontent }}</td >
             </tr>
         {% endfor %}
 

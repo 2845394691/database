@@ -22,7 +22,7 @@
         {% for obj in mail %}
             <tr>
                 <th scope="row">{{ obj.mailno }}</th>
-                <td>{{ obj.arrivaldate }}</td>
+                <td>{{ obj.arrivaldate|date:"Y-m-d" }}</td>
                 <td>{{ obj.arrivaltime}}</td>
                 <td>{{ obj.mailcontent }}</td>
             </tr>

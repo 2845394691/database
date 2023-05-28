@@ -26,9 +26,9 @@
             <tr>
                 <th scope="row">{{ obj.staffno.staffno }}</th>
                 <td>{{ obj.staffno.staffname }}</td>
-                <td>{{ obj.overapplydate }}</td>
-                <td>{{ obj.overstarttime }}</td>
-                <td>{{ obj.overendtime }}</td>
+                <td>{{ obj.overapplydate|date:"Y-m-d" }}</td>
+                <td>{{ obj.overstarttime|date:"Y-m-d H:i:s" }}</td>
+                <td>{{ obj.overendtime|date:"Y-m-d H:i:s" }}</td>
                 <td>{{ obj.overreason }}</td>
                 <td>
                     <a href="/manager/apply/jiaban/consent/?nid={{ obj.overno }}" class="btn btn-success btn-xs">同意</a>

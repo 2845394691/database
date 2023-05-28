@@ -26,9 +26,9 @@
             <tr>
                 <th scope="row">{{ obj.staffno.staffno }}</th>
                 <td>{{ obj.staffno.staffname }}</td>
-                <td>{{ obj.btapplydate }}</td>
-                <td>{{ obj.btstartdate }}</td>
-                <td>{{ obj.btenddate }}</td>
+                <td>{{ obj.btapplydate|date:"Y-m-d" }}</td>
+                <td>{{ obj.btstartdate|date:"Y-m-d" }}</td>
+                <td>{{ obj.btenddate|date:"Y-m-d" }}</td>
                 <td>{{ obj.btcontent }}</td>
                 <td>
                     <a href="/manager/apply/chuchai/consent/?nid={{ obj.btno }}" class="btn btn-success btn-xs">同意</a>

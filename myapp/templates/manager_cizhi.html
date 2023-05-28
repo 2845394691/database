@@ -24,7 +24,7 @@
             <tr>
                 <th scope="row">{{ obj.staffno.staffno }}</th>
                 <td>{{ obj.staffno.staffname }}</td>
-                <td>{{ obj.leaveapplydate }}</td>
+                <td>{{ obj.leaveapplydate|date:"Y-m-d" }}</td>
                 <td>{{ obj.leavereason }}</td>
                 <td>
                     <a href="/manager/apply/cizhi/consent/?nid={{ obj.leaveno }}" class="btn btn-success btn-xs">同意</a>
