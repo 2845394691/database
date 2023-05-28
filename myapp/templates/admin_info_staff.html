@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.3.0/css/bootstrap.min.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">员工ID</th>
+            <th scope="col">员工姓名</th>
+            <th scope="col">所属部门</th>
+            <th scope="col">联系方式</th>
+            <th scope="col">email</th>
+            <th scope="col">入职时间</th>
+            <th scope="col">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for obj in staff %}
+            <tr>
+                <th scope="row">{{ obj.staffno }}</th>
+                <td>{{ obj.staffname }}</td>
+                <td>{{ obj.departmentno.departmentname}}</td>
+                <td>{{ obj.phoneno}}</td>
+                <td>{{ obj.email }}</td>
+                <td>{{ obj.entrydate }}</td>
+                <td>
+                    <a href="/admin/info/staff/delete/?nid={{ obj.staffno }}" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
