@@ -15,7 +15,7 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path
-from myapp.views import test, staff_info
+from myapp.views import test, staff_info, staff_notice
 from myapp.views import login
 from myapp.views import staff_index
 from myapp.views import admin
@@ -106,5 +106,8 @@ urlpatterns = [
 
     # 员工工资
     path('staff/salary/', staff_info.salary_list),
+
+    # 员工查看部门通知
+    path('staff/notice/',staff_notice.detail),
 
 ]
