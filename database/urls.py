@@ -28,7 +28,7 @@ from myapp.views import manager_notice
 from myapp.views import admin_notice
 from myapp.views import admin_info
 from myapp.views import admin_depart
-
+from myapp.views import staff_check
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -76,14 +76,14 @@ urlpatterns = [
     path('manager/staff/delete/', manager_staff_manage.staff_delete),
 
     # 负责人审批请假单,请假同意，请假拒绝
-    path('manager/apply/qingjia/',manager_apply.qingjia),
-    path('manager/apply/qingjia/consent/',manager_apply.qingjia_consent),
-    path('manager/apply/qingjia/refuse/',manager_apply.qingjia_refuse),
+    path('manager/apply/qingjia/', manager_apply.qingjia),
+    path('manager/apply/qingjia/consent/', manager_apply.qingjia_consent),
+    path('manager/apply/qingjia/refuse/', manager_apply.qingjia_refuse),
 
     # 负责人审批加班单,同意，拒绝
-    path('manager/apply/jiaban/',manager_apply.jiaban),
-    path('manager/apply/jiaban/consent/',manager_apply.jiaban_consent),
-    path('manager/apply/jiaban/refuse/',manager_apply.jiaban_refuse),
+    path('manager/apply/jiaban/', manager_apply.jiaban),
+    path('manager/apply/jiaban/consent/', manager_apply.jiaban_consent),
+    path('manager/apply/jiaban/refuse/', manager_apply.jiaban_refuse),
 
     # 员工
     path('staff/apply/list/', staff_apply.apply_list),
@@ -104,31 +104,37 @@ urlpatterns = [
     path('manager/apply/cizhi/refuse/', manager_apply.cizhi_refuse),
 
     # 负责人发布通知，查看，撤回通知
-    path('manager/notice/publish/',manager_notice.publish),
-    path('manager/notice/detail/',manager_notice.detail),
-    path('manager/notice/chehui/',manager_notice.chehui),
+    path('manager/notice/publish/', manager_notice.publish),
+    path('manager/notice/detail/', manager_notice.detail),
+    path('manager/notice/chehui/', manager_notice.chehui),
 
     # 员工工资
     path('staff/salary/', staff_info.salary_list),
 
     # 员工查看所属部门通知
-    path('staff/notice/',staff_notice.detail),
+    path('staff/notice/', staff_notice.detail),
 
     # 员工个人信息修改
     path('staff/info/', staff_info.info_modify),
 
     # 管理员查看全部部门通知,删除通知
-    path('admin/notice/',admin_notice.detail),
+    path('admin/notice/', admin_notice.detail),
     path('admin/notice/delete/', admin_notice.delete),
 
     # 管理员查看员工信息，部门负责人信息
-    path('admin/info/manager/',admin_info.manager),
-    path('admin/info/manager/delete/',admin_info.manager_del),
-    path('admin/info/staff/',admin_info.staff),
-    path('admin/info/staff/delete/',admin_info.staff_del),
+    path('admin/info/manager/', admin_info.manager),
+    path('admin/info/manager/delete/', admin_info.manager_del),
+    path('admin/info/staff/', admin_info.staff),
+    path('admin/info/staff/delete/', admin_info.staff_del),
 
     # 管理员查看部门信息，新建部门
-    path('admin/depart/',admin_depart.detail)
+    path('admin/depart/',admin_depart.detail),
 
+    # 员工考勤
+    path('staff/check/', staff_check.staff_check),
+    # 员工考勤签到
+    path('staff/check/start/', staff_check.staff_check_start),
+    # 员工考勤签退
+    path('staff/check/end/', staff_check.staff_check_end),
 
 ]
