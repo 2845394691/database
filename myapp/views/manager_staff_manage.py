@@ -41,6 +41,7 @@ def staff_add(request):
     position = request.POST.get('position')
     position_object = models.Departmentposition.objects.get(departmentno=manage.departmentno, positionname=position)
     gender = request.POST.get('gender')
+    date = request.POST.get('date')
     staffno = get_rander_num()
     models.Staff.objects.create(staffno=staffno,
                                 departmentno=manage.departmentno,
@@ -50,7 +51,8 @@ def staff_add(request):
                                 password=password,
                                 phoneno=phone,
                                 email=email,
-                                sex=gender)
+                                sex=gender,
+                                entrydate=date)
     return redirect("/manager/staff/list/")
 
 def staff_delete(request):

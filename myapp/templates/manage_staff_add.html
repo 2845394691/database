@@ -22,7 +22,7 @@
         </div>
         <div class='mb-3'>
             <label for="" class="form-label">入职时间</label>
-            <input placeholder="入职时间" class="form-control" name="data" />
+            <input placeholder="入职时间" class="form-control" name="date" />
         </div>
         <div class="mb-3">
             <label for="" class="form-label">电话</label>
@@ -56,22 +56,22 @@
 <script src="{% static 'js/dtsel.js' %}"></script>
     <script>
         {#只有日期#}
-        instance = new dtsel.DTS('input[name="data"]', {
+        instance = new dtsel.DTS('input[name="date"]', {
             direction: 'BOTTOM'
         });
         {#日期加时间#}
-        instance = new dtsel.DTS('input[name="dateTimePicker"]', {
-            direction: 'BOTTOM',
-            dateFormat: "yyyy-mm-dd",
-            showTime: true,
-            timeFormat: "HH:MM:SS"
-        });
+{#        instance = new dtsel.DTS('input[name="dateTimePicker"]', {#}
+{#            direction: 'BOTTOM',#}
+{#            dateFormat: "yyyy-mm-dd",#}
+{#            showTime: true,#}
+{#            timeFormat: "HH:MM:SS"#}
+{#        });#}
         {#只有时间#}
-        instance = new dtsel.DTS('input[name="timePicker"]', {
-            direction: 'BOTTOM',
-            showTime: true,
-            showDate: false
-        });
+{#        instance = new dtsel.DTS('input[name="timePicker"]', {#}
+{#            direction: 'BOTTOM',#}
+{#            showTime: true,#}
+{#            showDate: false#}
+{#        });#}
     </script>
 </body>
 </html>
