@@ -50,8 +50,7 @@ def publish(request):
     mail = Mail(mailno=result, staffno=manager, arrivaldate=current_date,arrivaltime=current_time,
                 mailcontent=content,mailtype=departnameset[0])
     mail.save()
-
-    return render(request, 'manager_notice_publish.html', {"mname": managerset, "dname": departnameset})
+    return redirect("/manager/notice/detail/")
 
 
 def detail(request):
