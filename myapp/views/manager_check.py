@@ -29,7 +29,7 @@ def get_rander_num():
             return result
 
 
-def staff_check(request):
+def manager_check(request):
     """员工当日考勤"""
     cookie_dict = request.session['info']
     staffno = cookie_dict['id']
@@ -64,10 +64,10 @@ def staff_check(request):
         print(i['date'])
         print(i['start'])
         print(i['end'])
-    return render(request, 'staff_check.html', {'checks': checks_display})
+    return render(request, 'manager_check.html', {'checks': checks_display})
 
 
-def staff_check_start(request):
+def manager_check_start(request):
     """员工签到"""
     cookie_dict = request.session['info']
     staffno = cookie_dict['id']
@@ -77,10 +77,10 @@ def staff_check_start(request):
     if not flag.starttime:
         flag.starttime = get_time()
         flag.save()
-    return redirect("/staff/check/")
+    return redirect("/manager/check/")
 
 
-def staff_check_end(request):
+def manager_check_end(request):
     """员工签退"""
     cookie_dict = request.session['info']
     staffno = cookie_dict['id']
@@ -90,4 +90,4 @@ def staff_check_end(request):
     if not flag.endtime:
         flag.endtime = get_time()
         flag.save()
-    return redirect("/staff/check/")
+    return redirect("/manager/check/")

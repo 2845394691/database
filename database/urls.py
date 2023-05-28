@@ -29,6 +29,7 @@ from myapp.views import admin_notice
 from myapp.views import admin_info
 from myapp.views import admin_depart
 from myapp.views import staff_check
+from myapp.views import manager_check
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -128,7 +129,7 @@ urlpatterns = [
     path('admin/info/staff/delete/', admin_info.staff_del),
 
     # 管理员查看部门信息，新建部门
-    path('admin/depart/',admin_depart.detail),
+    path('admin/depart/', admin_depart.detail),
 
     # 员工考勤
     path('staff/check/', staff_check.staff_check),
@@ -136,5 +137,12 @@ urlpatterns = [
     path('staff/check/start/', staff_check.staff_check_start),
     # 员工考勤签退
     path('staff/check/end/', staff_check.staff_check_end),
+
+    # 负责人考勤
+    path('manager/check/', manager_check.manager_check),
+    # 负责人考勤签到
+    path('manager/check/start/', manager_check.manager_check_start),
+    # 负责人考勤签退
+    path('manager/check/end/', manager_check.manager_check_end),
 
 ]
