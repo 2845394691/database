@@ -22,16 +22,16 @@
         </tr>
         </thead>
         <tbody>
-        {% for obj in manager %}
+        {% for obj in departs %}
             <tr>
-                <th scope="row">{{ obj.staffno.staffno }}</th>
-                <td>{{ obj.staffname }}</td>
-                <td>{{ obj.departmentno.departmentname}}</td>
+                <th scope="row">{{ obj.staffno.staffno.staffno }}</th>
+                <td>{{ obj.staffno.staffname }}</td>
+                <td>{{ obj.departmentname}}</td>
                 <td>{{ obj.staffno.phoneno}}</td>
                 <td>{{ obj.staffno.email }}</td>
                 <td>{{ obj.staffno.entrydate }}</td>
                 <td>
-                    <a href="/admin/info/manager/delete/?nid={{ obj.staffno.staffno }}" class="btn btn-danger btn-xs">删除</a>
+                    <a href="/admin/info/manager/delete/?nid={{ obj.departmentno }}" class="btn btn-danger btn-xs">删除</a>
                 </td>
             </tr>
         {% endfor %}
