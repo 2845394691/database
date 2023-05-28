@@ -87,7 +87,7 @@ def staff_check_end(request):
     staff = models.Staff.objects.get(staffno=staffno)
     date = get_date()
     flag = models.Attendancerecord.objects.get(staffno=staffno, recorddate=date)
-    if not flag.endtime:
+    if (not flag.endtime) and flag.starttime:
         flag.endtime = get_time()
         flag.save()
     return redirect("/staff/check/")
