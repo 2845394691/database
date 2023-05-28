@@ -15,7 +15,7 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path
-from myapp.views import test
+from myapp.views import test, staff_info
 from myapp.views import login
 from myapp.views import staff_index
 from myapp.views import admin
@@ -24,7 +24,7 @@ from myapp.views import manager_index
 from myapp.views import staff_apply
 from myapp.views import manager_staff_manage
 from myapp.views import manager_apply
-from myapp.views import staff_info
+from myapp.views import manager_notice
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -72,14 +72,14 @@ urlpatterns = [
     path('manager/staff/delete/', manager_staff_manage.staff_delete),
 
     # 负责人审批请假单,请假同意，请假拒绝
-    path('manager/apply/qingjia/', manager_apply.qingjia),
-    path('manager/apply/qingjia/consent/', manager_apply.qingjia_consent),
-    path('manager/apply/qingjia/refuse/', manager_apply.qingjia_refuse),
+    path('manager/apply/qingjia/',manager_apply.qingjia),
+    path('manager/apply/qingjia/consent/',manager_apply.qingjia_consent),
+    path('manager/apply/qingjia/refuse/',manager_apply.qingjia_refuse),
 
     # 负责人审批加班单,同意，拒绝
-    path('manager/apply/jiaban/', manager_apply.jiaban),
-    path('manager/apply/jiaban/consent/', manager_apply.jiaban_consent),
-    path('manager/apply/jiaban/refuse/', manager_apply.jiaban_refuse),
+    path('manager/apply/jiaban/',manager_apply.jiaban),
+    path('manager/apply/jiaban/consent/',manager_apply.jiaban_consent),
+    path('manager/apply/jiaban/refuse/',manager_apply.jiaban_refuse),
 
     # 员工
     path('staff/apply/list/', staff_apply.apply_list),
@@ -98,6 +98,11 @@ urlpatterns = [
     path('manager/apply/cizhi/', manager_apply.cizhi),
     path('manager/apply/cizhi/consent/', manager_apply.cizhi_consent),
     path('manager/apply/cizhi/refuse/', manager_apply.cizhi_refuse),
+
+    # 负责人发布通知，查看，撤回通知
+    path('manager/notice/publish/',manager_notice.publish),
+    path('manager/notice/detail/',manager_notice.detail),
+    path('manager/notice/chehui/',manager_notice.chehui),
 
     # 员工工资
     path('staff/salary/', staff_info.salary_list),
