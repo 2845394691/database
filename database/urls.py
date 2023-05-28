@@ -30,6 +30,7 @@ from myapp.views import admin_info
 from myapp.views import admin_depart
 from myapp.views import staff_check
 from myapp.views import manager_check
+from myapp.views import manager_meeting
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -144,5 +145,11 @@ urlpatterns = [
     path('manager/check/start/', manager_check.manager_check_start),
     # 负责人考勤签退
     path('manager/check/end/', manager_check.manager_check_end),
+
+    #  负责人创建会议，查看历史会议
+    path('manager/meeting/publish/', manager_meeting.publish),
+    path('manager/meeting/detail/', manager_meeting.detail),
+    path('manager/meeting/delete/', manager_meeting.delete),
+
 
 ]
