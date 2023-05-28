@@ -153,8 +153,8 @@ urlpatterns = [
     path('manager/meeting/delete/', manager_meeting.delete),
 
     #  员工查看会议详情
-    path('staff/meeting/jinxing/',staff_meeting.start),
-    path('staff/meeting/end/',staff_meeting.end),
+    path('staff/meeting/jinxing/', staff_meeting.start),
+    path('staff/meeting/end/', staff_meeting.end),
 
     # 负责人查看员工考勤
     path('manager/check/list/', manager_check.manager_check_list),

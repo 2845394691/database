@@ -14,35 +14,47 @@
         {% csrf_token %}
         <div class="mb-3">
             <label for="" class="form-label" style="font-weight: bold">名字</label>
-            <input type="text" class="form-control" name="name" placeholder="{{ staff.staffname }}" value="{{ staff.staffname }}">
+            <input type="text" class="form-control" name="name" placeholder="{{ staff.staffname }}"
+                   value="{{ staff.staffname }}">
         </div>
         <div class="mb-3">
             <label for="" class="form-label" style="font-weight: bold">密码</label>
-            <input type="text" class="form-control" name="password" placeholder="{{ staff.password }}" value="{{ staff.password }}">
+            <input type="text" class="form-control" name="password" placeholder="{{ staff.password }}"
+                   value="{{ staff.password }}">
         </div>
         <div class='mb-3'>
             <label for="" class="form-label" style="font-weight: bold">入职时间</label>
-            <input placeholder="{{ staff.entrydate }}" class="form-control" name="date" value="{{ staff.entrydate }}" readonly="readonly"/>
+            <input placeholder="{{ staff.entrydate }}" class="form-control" name="date"
+                   value="{{ staff.entrydate|safe }}"/>
         </div>
         <div class="mb-3">
             <label for="" class="form-label" style="font-weight: bold">电话</label>
-            <input type="text" class="form-control" name="phone" placeholder="{{ staff.phoneno }}" value="{{ staff.phoneno }}">
+            <input type="text" class="form-control" name="phone" placeholder="{{ staff.phoneno }}"
+                   value="{{ staff.phoneno }}">
         </div>
         <div class="mb-3">
             <label for="" class="form-label" style="font-weight: bold">邮箱</label>
-            <input type="text" class="form-control" name="email" placeholder="{{ staff.email }}" value="{{ staff.email }}">
+            <input type="text" class="form-control" name="email" placeholder="{{ staff.email }}"
+                   value="{{ staff.email }}">
         </div>
         <div class="mb-3">
             <label for="" class="form-label" style="font-weight: bold">部门</label>
-            <input type="text" class="form-control" name="depart" placeholder="{{ staff.departmentno.departmentname }}" value="{{ staff.departmentno.departmentname }}" readonly="readonly">
+            <select class="form-control" name="depart">
+                <option selected value="{{ staff.departmentno.departmentno }}">{{ staff.departmentno.departmentname }}</option>
+                {% for depart in departs %}
+                <option value="{{ depart.departmentno }}">{{ depart.departmentname }}</option>
+                {% endfor %}
+            </select>
         </div>
         <div class="mb-3">
             <label for="" class="form-label" style="font-weight: bold">职位</label>
-            <input type="text" class="form-control" name="position" placeholder="{{ staff.positionno.positionname }}" value="{{ staff.positionno.positionname }}" readonly="readonly">
+            <input type="text" class="form-control" name="position" placeholder="{{ staff.positionno.positionname }}"
+                   readonly="readonly">
         </div>
         <div class="mb-3">
             <label for="" class="form-label" style="font-weight: bold">性别</label>
-            <input type="text" class="form-control" name="gender" placeholder="{{ staff.get_sex_display }}" value="{{ staff.get_sex_display }}" readonly="readonly">
+            <input type="text" class="form-control" name="gender" placeholder="{{ staff.get_sex_display }}"
+                   readonly="readonly">
         </div>
         <button type="submit" class="btn btn-primary" style="font-weight: bold">提交</button>
     </form>
@@ -50,7 +62,7 @@
 <script src="{% static 'js/dtsel.js' %}"></script>
 <script>
     {#只有日期#}
-    instance = new dtsel.DTS('input[name="无"]', {
+    instance = new dtsel.DTS('input[name="date"]', {
         direction: 'BOTTOM'
     });
     {#日期加时间#}
