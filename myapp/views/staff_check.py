@@ -57,13 +57,6 @@ def staff_check(request):
         else:
             check_clone['end'] = check.endtime
         checks_display.append(check_clone)
-
-    for i in checks_display:
-        print(i['recordNo'])
-        print(i['name'])
-        print(i['date'])
-        print(i['start'])
-        print(i['end'])
     return render(request, 'staff_check.html', {'checks': checks_display})
 
 
@@ -84,10 +77,34 @@ def staff_check_end(request):
     """员工签退"""
     cookie_dict = request.session['info']
     staffno = cookie_dict['id']
-    staff = models.Staff.objects.get(staffno=staffno)
+
     date = get_date()
     flag = models.Attendancerecord.objects.get(staffno=staffno, recorddate=date)
     if (not flag.endtime) and flag.starttime:
         flag.endtime = get_time()
         flag.save()
     return redirect("/staff/check/")
+
+
+def staff_check_show(request):
+    """考勤数据展示"""
+    cookie_dict = request.session['info']
+    staffno = cookie_dict['id']
+
+    checks = models.Attendancerecord.objects.filter(staffno=staffno)
+    success_start = 0
+    success_end = 0
+    failure_start = 0
+    failure_end = 0
+    for check in checks:
+        if check.starttime:
+            success_start = success_start + 1
+        else:
+            failure_start = failure_start + 1
+        if check.endtime:
+            success_end = success_end + 1
+        else:
+            failure_end = failure_end + 1
+    return render(request, 'staff_check_show.html',
+                  {'success_start': success_start, 'success_end': success_end, 'failure_start': failure_start,
+                   'failure_end': failure_end})

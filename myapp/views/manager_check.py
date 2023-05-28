@@ -57,13 +57,6 @@ def manager_check(request):
         else:
             check_clone['end'] = check.endtime
         checks_display.append(check_clone)
-
-    for i in checks_display:
-        print(i['recordNo'])
-        print(i['name'])
-        print(i['date'])
-        print(i['start'])
-        print(i['end'])
     return render(request, 'manager_check.html', {'checks': checks_display})
 
 
@@ -91,3 +84,29 @@ def manager_check_end(request):
         flag.endtime = get_time()
         flag.save()
     return redirect("/manager/check/")
+
+
+def manager_check_list(request):
+    cookie_dict = request.session['info']
+    staffno = cookie_dict['id']
+    checks_display = []
+    staffs = models.Staff.objects.filter(man_staffno=staffno)
+    for staff in staffs:
+        id = staff.staffno
+        checks = models.Attendancerecord.objects.filter(staffno=id)
+        for check in checks:
+            check_clone = {}
+            check_clone['staffNo'] = id
+            check_clone['recordNo'] = check.recordno
+            check_clone['name'] = check.staffno.staffname
+            check_clone['date'] = check.recorddate
+            if not check.starttime:
+                check_clone['start'] = '未签到'
+            else:
+                check_clone['start'] = check.starttime
+            if not check.endtime:
+                check_clone['end'] = '未签退'
+            else:
+                check_clone['end'] = check.endtime
+            checks_display.append(check_clone)
+    return render(request, 'manage_check_list.html', {'checks': checks_display})
