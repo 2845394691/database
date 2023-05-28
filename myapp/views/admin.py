@@ -37,14 +37,12 @@ def login(request):
     admin = models.Admin.objects.filter(adminNo=form['adminNo'], password=form['password'])
     if not admin:
         label = '用户名或者密码错误!'
-        return render(request, 'admin_login.html',{'label':label})
+        return render(request, 'admin_login.html', {'label': label})
     else:
         request.session["admin"] = {'id': form["adminNo"]}
-        return render(request, 'manager_index.html')
+        return render(request, 'admin_index.html')
     # return render(request, 'admin_login.html')
-
 
 # def index(request):
 #     """管理员首页"""
 #     return render(request, 'staff_index.html')
-

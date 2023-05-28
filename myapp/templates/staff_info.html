@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.3.0/css/bootstrap.min.css' %}">
+    <link href="{% static 'css/dtsel.css' %}" rel='stylesheet' type='text/css'/>
+</head>
+<body>
+<div class="container">
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="" class="form-label" style="font-weight: bold">名字</label>
+            <input type="text" class="form-control" name="name" placeholder="{{ staff.staffname }}" value="{{ staff.staffname }}">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label" style="font-weight: bold">密码</label>
+            <input type="text" class="form-control" name="password" placeholder="{{ staff.password }}" value="{{ staff.password }}">
+        </div>
+        <div class='mb-3'>
+            <label for="" class="form-label" style="font-weight: bold">入职时间</label>
+            <input placeholder="{{ staff.entrydate }}" class="form-control" name="date" value="{{ staff.entrydate }}" readonly="readonly"/>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label" style="font-weight: bold">电话</label>
+            <input type="text" class="form-control" name="phone" placeholder="{{ staff.phoneno }}" value="{{ staff.phoneno }}">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label" style="font-weight: bold">邮箱</label>
+            <input type="text" class="form-control" name="email" placeholder="{{ staff.email }}" value="{{ staff.email }}">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label" style="font-weight: bold">部门</label>
+            <input type="text" class="form-control" name="depart" placeholder="{{ staff.departmentno.departmentname }}" value="{{ staff.departmentno.departmentname }}" readonly="readonly">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label" style="font-weight: bold">职位</label>
+            <input type="text" class="form-control" name="position" placeholder="{{ staff.positionno.positionname }}" value="{{ staff.positionno.positionname }}" readonly="readonly">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label" style="font-weight: bold">性别</label>
+            <input type="text" class="form-control" name="gender" placeholder="{{ staff.get_sex_display }}" value="{{ staff.get_sex_display }}" readonly="readonly">
+        </div>
+        <button type="submit" class="btn btn-primary" style="font-weight: bold">提交</button>
+    </form>
+</div>
+<script src="{% static 'js/dtsel.js' %}"></script>
+<script>
+    {#只有日期#}
+    instance = new dtsel.DTS('input[name="无"]', {
+        direction: 'BOTTOM'
+    });
+    {#日期加时间#}
+    {#        instance = new dtsel.DTS('input[name="dateTimePicker"]', {#}
+    {#            direction: 'BOTTOM',#}
+    {#            dateFormat: "yyyy-mm-dd",#}
+    {#            showTime: true,#}
+    {#            timeFormat: "HH:MM:SS"#}
+    {#        });#}
+    {#只有时间#}
+    {#        instance = new dtsel.DTS('input[name="timePicker"]', {#}
+    {#            direction: 'BOTTOM',#}
+    {#            showTime: true,#}
+    {#            showDate: false#}
+    {#        });#}
+</script>
+</body>
+</html>

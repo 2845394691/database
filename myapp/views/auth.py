@@ -10,7 +10,8 @@ class AuthMiddleware(MiddlewareMixin):
             return
 
         info_dict = request.session.get("info")
-        if info_dict:
+        admin = request.session.get("admin")
+        if info_dict or admin:
             return
 
         return redirect('/login/')

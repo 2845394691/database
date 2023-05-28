@@ -110,4 +110,6 @@ urlpatterns = [
     # 员工查看部门通知
     path('staff/notice/',staff_notice.detail),
 
+    path('staff/info/', staff_info.info_modify),
+
 ]
