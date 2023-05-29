@@ -32,6 +32,7 @@ from myapp.views import staff_check
 from myapp.views import manager_check
 from myapp.views import manager_meeting
 from myapp.views import staff_meeting
+from myapp.views import index
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -161,5 +162,8 @@ urlpatterns = [
 
     # 员工考勤查看
     path('staff/check/show/', staff_check.staff_check_show),
+
+    # 员工考勤查看
+    path('index/', index.index),
 
 ]
