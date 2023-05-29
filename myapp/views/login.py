@@ -43,6 +43,6 @@ def login(request):
                 return render(request, 'login.html', {'form': form})
             # 用户密码正确时
             # 是外键的时候，返回的是外表的对象
-            request.session["info"] = {'id': manage.staffno.staffno}
+            request.session["manage"] = {'id': manage.staffno.staffno}
             return redirect("/manager/index/")
     return render(request, 'login.html', {'form': form})

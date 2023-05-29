@@ -31,7 +31,7 @@ def get_rander_num():
 
 def manager_check(request):
     """员工当日考勤"""
-    cookie_dict = request.session['info']
+    cookie_dict = request.session['manage']
     staffno = cookie_dict['id']
     staff = models.Staff.objects.get(staffno=staffno)
 
@@ -41,6 +41,12 @@ def manager_check(request):
         models.Attendancerecord.objects.create(recordno=get_rander_num(), staffno=staff, recorddate=date)
 
     checks = models.Attendancerecord.objects.filter(staffno=staffno).order_by("-recorddate").all()
+
+    success_start = 0
+    success_end = 0
+    failure_start = 0
+    failure_end = 0
+
     # 前端要展示的列表数据
     checks_display = []
     for check in checks:
@@ -50,19 +56,26 @@ def manager_check(request):
         check_clone['date'] = check.recorddate
         if not check.starttime:
             check_clone['start'] = '未签到'
+            failure_start = failure_start + 1
         else:
             check_clone['start'] = check.starttime
+            success_start = success_start + 1
         if not check.endtime:
             check_clone['end'] = '未签退'
+            failure_end = failure_end + 1
         else:
             check_clone['end'] = check.endtime
+            success_end = success_end + 1
         checks_display.append(check_clone)
-    return render(request, 'manager_check.html', {'checks': checks_display})
+    return render(request, 'manager_check.html',
+                  {'checks': checks_display, 'success_start': success_start, 'success_end': success_end,
+                   'failure_start': failure_start,
+                   'failure_end': failure_end})
 
 
 def manager_check_start(request):
     """员工签到"""
-    cookie_dict = request.session['info']
+    cookie_dict = request.session['manage']
     staffno = cookie_dict['id']
     staff = models.Staff.objects.get(staffno=staffno)
     date = get_date()
@@ -75,7 +88,7 @@ def manager_check_start(request):
 
 def manager_check_end(request):
     """员工签退"""
-    cookie_dict = request.session['info']
+    cookie_dict = request.session['manage']
     staffno = cookie_dict['id']
     staff = models.Staff.objects.get(staffno=staffno)
     date = get_date()
@@ -87,9 +100,13 @@ def manager_check_end(request):
 
 
 def manager_check_list(request):
-    cookie_dict = request.session['info']
+    cookie_dict = request.session['manage']
     staffno = cookie_dict['id']
     checks_display = []
+    success_start = 0
+    success_end = 0
+    failure_start = 0
+    failure_end = 0
     staffs = models.Staff.objects.filter(man_staffno=staffno)
     for staff in staffs:
         id = staff.staffno
@@ -102,11 +119,18 @@ def manager_check_list(request):
             check_clone['date'] = check.recorddate
             if not check.starttime:
                 check_clone['start'] = '未签到'
+                failure_start = failure_start + 1
             else:
                 check_clone['start'] = check.starttime
+                success_start = success_start + 1
             if not check.endtime:
                 check_clone['end'] = '未签退'
+                failure_end = failure_end + 1
             else:
                 check_clone['end'] = check.endtime
+                success_end = success_end + 1
             checks_display.append(check_clone)
-    return render(request, 'manage_check_list.html', {'checks': checks_display})
+    return render(request, 'manage_check_list.html',
+                  {'checks': checks_display, 'success_start': success_start, 'success_end': success_end,
+                   'failure_start': failure_start,
+                   'failure_end': failure_end})

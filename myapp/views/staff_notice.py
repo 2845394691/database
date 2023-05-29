@@ -12,6 +12,6 @@ def detail(request):
     # 获取部门名字列表
     departnameset = list(Department.objects.filter(departmentno=departno).values_list('departmentname', flat=True))
 
-    mailset=Mail.objects.filter(mailtype=departnameset[0])
+    mailset=Mail.objects.filter(mailtype=departnameset[0]).order_by("-arrivaldate")
 
     return render(request, 'staff_notice.html', {'mail': mailset})

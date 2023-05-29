@@ -19,7 +19,7 @@ def get_rander_num():
 
 def staff_list(request):
     """展示员工信息"""
-    manage = request.session["info"]
+    manage = request.session["manage"]
     manage_id = manage['id']
     staffs = models.Staff.objects.filter(man_staffno=manage_id)
 
@@ -28,7 +28,7 @@ def staff_list(request):
 
 def staff_add(request):
     """添加员工"""
-    manage_dict = request.session['info']
+    manage_dict = request.session['manage']
     manage = models.Manager.objects.get(staffno=manage_dict['id'])
     depart_name = manage.departmentno.departmentname
     if request.method == 'GET':

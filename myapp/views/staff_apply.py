@@ -295,11 +295,11 @@ def apply_list(request):
     staff_dict = request.session['info']
     staffno = staff_dict['id']
     staff = Staff.objects.get(staffno=staffno)
-    leaves = Leave.objects.filter(staffno=staffno).all()
-    overtimes = Overtime.objects.filter(staffno=staffno).all()
-    reims = Reimbursement.objects.filter(staffno=staffno).all()
-    absences = Absence.objects.filter(staffno=staffno).all()
-    business_trips = Businesstrip.objects.filter(staffno=staffno).all()
+    leaves = Leave.objects.filter(staffno=staffno).all().order_by("-leaveapplydate")
+    overtimes = Overtime.objects.filter(staffno=staffno).all().order_by("-overapplydate")
+    reims = Reimbursement.objects.filter(staffno=staffno).all().order_by("-reimapplydate")
+    absences = Absence.objects.filter(staffno=staffno).all().order_by("-abapplydate")
+    business_trips = Businesstrip.objects.filter(staffno=staffno).all().order_by("-btapplydate")
     return render(request, 'staff_apply_list.html', {'leaves': leaves, 'overtimes': overtimes,
                                                      'reims': reims, 'absences': absences,
                                                      'business_trips': business_trips})

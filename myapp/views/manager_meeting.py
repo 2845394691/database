@@ -9,7 +9,7 @@ import time
 
 def publish(request):
     # 获取负责人id
-    var = request.session.get('info')
+    var = request.session.get('manage')
     staff_id = var['id']
     staff=Manager.objects.filter(staffno=staff_id).first()
     # 获取员工名字列表
@@ -50,9 +50,9 @@ def publish(request):
 
 def detail(request):
     # 获取负责人id
-    var = request.session.get('info')
+    var = request.session.get('manage')
     staff_id = var['id']
-    meetingset=Meeting.objects.filter(staffno=staff_id)
+    meetingset=Meeting.objects.filter(staffno=staff_id).order_by("-meetingdate")
     return render(request,'manager_meeting_detail.html',{"meetingset":meetingset})
 
 def delete(request):

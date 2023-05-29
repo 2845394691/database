@@ -10,7 +10,7 @@ from myapp.models import Staff
 def publish(request):
     if request.method == "GET":
         # 获取负责人id
-        var = request.session.get('info')
+        var = request.session.get('manage')
         manager_id = var['id']
         # 获取负责人名字列表
         managerset = list(Manager.objects.filter(staffno=manager_id).values_list('staffname', flat=True))
@@ -23,7 +23,7 @@ def publish(request):
         return render(request, 'manager_notice_publish.html', {"mname":managerset,"dname":departnameset})
 
     # 获取负责人id
-    var = request.session.get('info')
+    var = request.session.get('manage')
     manager_id = var['id']
     manager = Staff.objects.filter(staffno=manager_id).first()
     # 获取负责人名字列表
@@ -54,9 +54,9 @@ def publish(request):
 
 
 def detail(request):
-    manage = request.session["info"]
+    manage = request.session["manage"]
     manage_id = manage['id']
-    mail=Mail.objects.filter(staffno=manage_id)
+    mail=Mail.objects.filter(staffno=manage_id).order_by("-arrivaldate")
 
     return render(request, 'manage_notice_detail.html', {'mail': mail})
 
