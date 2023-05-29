@@ -29,7 +29,7 @@
                 <td>{{ obj.departmentname}}</td>
                 <td>{{ obj.staffno.phoneno}}</td>
                 <td>{{ obj.staffno.email }}</td>
-                <td>{{ obj.staffno.entrydate }}</td>
+                <td>{{ obj.staffno.entrydate|date:"Y-m-d" }}</td>
                 <td>
                     <a href="/admin/info/manager/delete/?nid={{ obj.departmentno }}" class="btn btn-danger btn-xs">删除</a>
                 </td>
