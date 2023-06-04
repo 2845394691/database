@@ -45,4 +45,4 @@ def info_modify(request):
     staff.departmentno = depart
     staff.save()
     # return render(request, 'staff_info.html', {'staff':staff})
-    return redirect('/staff/index/')
+    return redirect('/staff/info/')
